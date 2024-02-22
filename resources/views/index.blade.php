@@ -34,9 +34,9 @@
 </head>
 <body class="index-page bg-gray-200">
   <div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
-    <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+<nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute   my-3 py-2 start-0 end-0 mx-4">
       <div class="container-fluid px-0">
-        <a class="navbar-brand font-weight-bolder ms-sm-3" href="https://demos.creative-tim.com/material-kit/index" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand font-weight-bolder ms-sm-3" href="/" rel="tooltip" data-placement="bottom" target="_blank">
           PUSTIK
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,28 +51,22 @@
             <li class="nav-item dropdown dropdown-hover mx-2">
               <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
-                Pages
+                Books
                 <img src="{{ asset('template') }}/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
               </a>
               <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
                 <div class="d-none d-lg-block">
       <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-        Landing Pages
+        Category
       </h6>
       <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
-        <span>About Us</span>
+        <span>Fiction</span>
       </a>
       <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
-        <span>Contact Us</span>
+        <span>Self Improvement</span>
       </a>
       <a href="./pages/author.html" class="dropdown-item border-radius-md">
-        <span>Author</span>
-      </a>
-      <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
-        Account
-      </h6>
-      <a href="./pages/sign-in.html" class="dropdown-item border-radius-md">
-        <span>Sign In</span>
+        <span>Novel</span>
       </a>
     </div>
     
@@ -429,15 +423,22 @@
               </ul>
             </li>
             <li class="nav-item ms-lg-auto">
-              <a class="nav-link nav-link-icon me-2" href="https://github.com/creativetimofficial/material-kit" target="_blank">
+              <a class="nav-link nav-link-icon me-2" href="https://github.com/nurilanwaralabsory/laravel-pustik" target="_blank">
                 <i class="fa fa-github me-1" aria-hidden="true"></i>
                 <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Star us on Github">Github</p>
               </a>
             </li>
             <li class="nav-item my-auto ms-3 ms-lg-0">
-              
-              <a href="https://www.creative-tim.com/product/material-kit-pro" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Upgrade to Pro</a>
-              
+              @if (Route::has('login'))
+                @auth
+                  <a href="{{ url('/dashboard') }}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Dashboard</a>
+                  @else
+                    <a href="{{ route('login') }}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Log in</a>
+                    @if (Route::has('register'))
+                      <a href="{{ route('register') }}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Register</a>
+                    @endif
+                @endauth
+              @endif
             </li>
           </ul>
         </div>
@@ -470,8 +471,8 @@
           <div class="row">
             <div class="col-md-4 position-relative">
               <div class="p-3 text-center">
-                <h1 class="text-gradient text-primary"><span id="state1" countto="70">70</span>+</h1>
-                <h5 class="mt-3">Coded Elements</h5>
+                <h1 class="text-gradient text-primary"><span id="state1" countto="{{ $count }}">{{ $count }}</span></h1>
+                <h5 class="mt-3">Books</h5>
                 <p class="text-sm font-weight-normal">From buttons, to inputs, navbars, alerts or cards, you are covered</p>
               </div>
               <hr class="vertical dark">
@@ -504,16 +505,19 @@
             <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5 rounded-circle">
               <div class="front front-background shadow-lg rounded-circle">
                 <div class="card-body text-center p-0 rounded-circle">
-                  <img src="{{ asset('images/masih_belajar.jpg') }}" alt="book" class="img-fluid rounded-4" >
+                  <img src="{{ asset('images') . '/' . $books->cover }}" alt="book" class="img-fluid border-radius-lg" style="box-shadow: -12px 5px 5px rgb(58, 57, 57)">
                 </div>
               </div>
               <div class="back back-background">
                 <div class="card-body text-center p-0">
-                  <img src="{{ asset('images/masih_belajar.jpg') }}" alt="book" class="img-fluid">
+                  <a href=""> 
+                    <img src="{{ asset('images/masih_belajar.jpg') }}" alt="book" class="img-fluid border-radius-lg" style="box-shadow: -12px 5px 5px rgb(58, 57, 57)">
+                  </a>
                 </div>
               </div>
             </div>
           </div>
+          <button class="my-4 m-auto btn bg-gradient-primary w-100">View more</button>
         </div>
         <div class="col-lg-6 ms-auto">
           <div class="row justify-content-start">
