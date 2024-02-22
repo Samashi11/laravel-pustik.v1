@@ -505,13 +505,13 @@
             <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5 rounded-circle">
               <div class="front front-background shadow-lg rounded-circle">
                 <div class="card-body text-center p-0 rounded-circle">
-                  <img src="{{ asset('images') . '/' . $books->cover }}" alt="book" class="img-fluid border-radius-lg" style="box-shadow: -12px 5px 5px rgb(58, 57, 57)">
+                  <img src="{{ $books->cover }}" alt="book" class="img-fluid border-radius-lg" style="box-shadow: -12px 5px 5px rgb(58, 57, 57)">
                 </div>
               </div>
               <div class="back back-background">
                 <div class="card-body text-center p-0">
                   <a href=""> 
-                    <img src="{{ asset('images/masih_belajar.jpg') }}" alt="book" class="img-fluid border-radius-lg" style="box-shadow: -12px 5px 5px rgb(58, 57, 57)">
+                    <img src="{{ $books->cover }}" alt="book" class="img-fluid border-radius-lg" style="box-shadow: -12px 5px 5px rgb(58, 57, 57)">
                   </a>
                 </div>
               </div>

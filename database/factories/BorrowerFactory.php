@@ -17,7 +17,13 @@ class BorrowerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // * create faker data for each field
+            'name' => $this->faker->name,
+            'phone_number' => $this->faker->phoneNumber,
+            'address' => $this->faker->address,
+            'book_id' => $this->faker->numberBetween(1, 5),
+            'borrow_date' => $this->faker->date,
+            'return_date' => $this->faker->date,
         ];
     }
 }

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('author', 200);
             $table->string('publisher', 200);
             $table->string('isbn', 13)->unique();
-            $table->string('category', 50);
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->string('cover');
             $table->enum('status', ['available', 'unavailable'])->default('available');
             $table->timestamps();
