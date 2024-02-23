@@ -56,7 +56,7 @@
 * Material Kit 2 - v3.0.4
 =========================================================
 
-* Product Page:  https://www.creative-tim.com/product/material-kit 
+* Product Page:  https://www.creative-tim.com/product/material-kit
 * Copyright 2023 Creative Tim (https://www.creative-tim.com)
 * Coded by www.creative-tim.com
 
@@ -95,7 +95,7 @@
   <!-- Navbar Transparent -->
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
-      <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip"
+      <a class="navbar-brand  text-white fw-bold" href="{{ url('/') }}" rel="tooltip"
         title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
         PUSTIK
       </a>
